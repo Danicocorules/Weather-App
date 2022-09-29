@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
-interface menuSidebar {
-  name: string,
-  url: string,
-  icon: string
-}
+import { menuSidebar} from '../../decowood/interfaces/menu.interface';
 
 @Component({
   selector: 'app-sidebar',
@@ -27,8 +21,8 @@ export class SidebarComponent {
       icon: 'shopping_cart_checkout'
     },
     {
-      name: 'Añadir Pedido',
-      url: 'add-pedido',
+      name: 'Argegar Pedido',
+      url: 'agregar-pedido',
       icon: 'shopping_cart_checkout'
     },
     {
@@ -38,7 +32,7 @@ export class SidebarComponent {
     },
     {
       name: 'Comandas',
-      url: 'proveedores/:comanda',
+      url: 'comandas',
       icon: 'move_down'
     }
   ]

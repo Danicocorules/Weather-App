@@ -5,8 +5,10 @@
     <ul class="sidebar-menu">
 
       <li class="sidebar-single" *ngFor="let item of menuSidebar">
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-        <p>{{ item.name }}</p>
+        <a class="custom-link" routerLink='decowood/{{item.url}}'>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+          <p>{{ item.name }}</p>
+        </a>
       </li>
 
     </ul>
