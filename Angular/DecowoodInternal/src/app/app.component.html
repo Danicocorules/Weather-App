@@ -1,9 +1,8 @@
-<div class="row container-full h-100">
-  <div class="col-3 sidebar">
-    <app-sidebar></app-sidebar>
+  <div class="row container-fluid h-100">
+    <div class="col-3 sidebar">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-9">
+        <router-outlet></router-outlet>
+    </div>
   </div>
-
-  <div class="col-9">
-      <router-outlet></router-outlet>
-  </div>
-</div>
