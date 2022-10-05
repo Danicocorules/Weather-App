@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     children: [
       { path: 'pedidos', component: PedidosListaComponent},
-      { path: 'pedido/:id', component: PedidoComponent},
+      { path: 'pedido/:idPedido', component: PedidoComponent},
       { path: 'agregar-pedido', component: AgregarPedidoComponent},
       { path: 'proveedores', component: ProveedoresComponent},
       { path: 'comandas', component: ComandasComponent},

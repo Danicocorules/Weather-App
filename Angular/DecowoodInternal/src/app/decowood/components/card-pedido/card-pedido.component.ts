@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Pedido } from '../../interfaces/pedidos.interface';
 
 @Component({
   selector: 'app-card-pedido',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardPedidoComponent implements OnInit {
 
+  @Input() pedidosAct!: Pedido;
+
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

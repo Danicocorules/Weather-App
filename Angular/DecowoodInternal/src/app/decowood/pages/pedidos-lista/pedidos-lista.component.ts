@@ -11,13 +11,12 @@ export class PedidosListaComponent implements OnInit {
 
   pedidos: Pedido[] = [];
 
-  constructor( private pedidosServ: PedidosService ) {
-
-    this.pedidosServ.getPedidos()
-      .subscribe( (resp: Pedido[]) => console.log(resp) );
-  }
+  constructor( private pedidosServ: PedidosService ) { }
 
   ngOnInit(): void {
+    this.pedidosServ.getPedidos()
+    .subscribe( (resp: Pedido[]) => {
+      this.pedidos = resp;
+    });
   }
-
 }
