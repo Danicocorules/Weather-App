@@ -1,24 +1,35 @@
 <div class="row"
       *ngFor="let item of pedidoRequerido">
-  <div class="col-12">
+  <div class="col-6">
     <h2>Pedido: {{ item.pedido_id }}</h2>
-    <hr>
-    Estado del pedido: {{ item.estado_pedido }} <br>
-    Productos: {{ item.productos }} <br>
+  </div>
+
+  <div class="col-6">
+    <button mat-raised-button
+            color="primary"
+            class="float-end"
+            [routerLink]="['/decowood/pedidos']">
+            Volver a Pedidos
+    </button>
+
+  </div>
+  <div class="col-12"><hr></div>
+
+  <div class="col-12">
+       Estado del pedido: {{ item.estado_pedido }} <br>
+       Productos: {{ item.productos }} <br>
 
     <mat-card class="pedido-card col-5"
               *ngFor="let prod of item.producto_detalle">
-                <mat-card-content>
-                    {{ prod.nombre }} <br>
-                    SKU: {{ prod.sku }} <br>
-                  Categoria: {{ prod.categoria }} <br>
-                  Subcategoría: {{ prod.subcategoria }} <br>
-                  Color: {{ prod.color }} <br>
-                  Unidades: {{ prod.unidades }} <br>
-                </mat-card-content>
+      <mat-card-content>
+          {{ prod.nombre }} <br>
+          SKU: {{ prod.sku }} <br>
+          Categoria: {{ prod.categoria }} <br>
+          Subcategoría: {{ prod.subcategoria }} <br>
+          Color: {{ prod.color }} <br>
+          Unidades: {{ prod.unidades }} <br>
+      </mat-card-content>
     </mat-card>
-
-
 
   </div>
 </div>
