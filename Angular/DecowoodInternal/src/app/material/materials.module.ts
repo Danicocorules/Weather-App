@@ -6,6 +6,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+// import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -16,7 +19,10 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatFormFieldModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
+    // MatTableDataSource,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }
