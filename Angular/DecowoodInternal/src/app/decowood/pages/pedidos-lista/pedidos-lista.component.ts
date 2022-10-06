@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PedidosService } from '../../../services/pedidos.service';
 import { Pedido } from '../../interfaces/pedidos.interface'
 
@@ -19,4 +19,9 @@ export class PedidosListaComponent implements OnInit {
       this.pedidos = resp;
     });
   }
+
+  buscarId(id:number) {
+    console.log('pedidos', id);
+  }
+
 }

@@ -20,7 +20,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

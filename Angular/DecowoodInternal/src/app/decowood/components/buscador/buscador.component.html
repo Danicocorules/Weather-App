@@ -1,0 +1,25 @@
+<form class="buscador-pedido"
+      [formGroup]="formBusqueda">
+<mat-form-field appearance="fill">
+  <mat-label>Busqueda por ID</mat-label>
+  <input matInput
+         formControlName="busqueda">
+</mat-form-field>
+</form>
+
+<button mat-raised-button color="primary"
+        (click)="buscarPedido()"
+        >Buscar
+</button>
+
+
+
+<!--
+<p> formBusqueda.valid </p>
+<pre> {{formBusqueda.valid}} </pre>
+
+<p> formBusqueda.touched </p>
+<pre> {{formBusqueda.touched}} </pre>
+
+<p> formBusqueda.value </p>
+<pre> {{formBusqueda.value | json}} </pre> -->

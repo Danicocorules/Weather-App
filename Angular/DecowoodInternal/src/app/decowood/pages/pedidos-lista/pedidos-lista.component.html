@@ -1,4 +1,15 @@
 <div class="row">
+  <div class="col-12">
+    <app-buscador (idBusqueda)="buscarId($event)"></app-buscador>
+    <hr>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <app-card-pedido [idBusq]="idABuscar"> dsffds {{ idABuscar }} </app-card-pedido>
+</div> -->
+
+<div class="row">
   <div class="col-4 mt-3"
        *ngFor="let pedido of pedidos">
     <app-card-pedido [pedidosAct]="pedido" ></app-card-pedido>
