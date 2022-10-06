@@ -21,7 +21,19 @@ export class PedidosListaComponent implements OnInit {
   }
 
   buscarId(id:number) {
-    console.log('pedidos', id);
+    this.pedidosServ.getSinglePedido(id)
+      .subscribe( (pedidoBusqueda: any) => this.pedidos = pedidoBusqueda );
   }
 
 }
+
+
+
+
+
+    // this.pedidosServ.getSinglePedido( this.idBusq )
+    //   .subscribe( ( pedido:any ) =>  {
+    //     this.pedidoBusq = pedido;
+    //     this.idBusqueda.emit( this.pedidoBusq );
+    //     console.log('BUSCADOR', this.pedidoBusq);
+    //   } );

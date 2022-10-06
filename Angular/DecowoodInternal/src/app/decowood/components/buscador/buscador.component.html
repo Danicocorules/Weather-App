@@ -12,14 +12,18 @@
         >Buscar
 </button>
 
+<div class="resp"
+      *ngIf="validate()">
+   <span>El ID no es correcto</span>
+</div>
 
 
-<!--
-<p> formBusqueda.valid </p>
+
+<!-- <p> formBusqueda.valid </p>
 <pre> {{formBusqueda.valid}} </pre>
 
 <p> formBusqueda.touched </p>
 <pre> {{formBusqueda.touched}} </pre>
 
-<p> formBusqueda.value </p>
-<pre> {{formBusqueda.value | json}} </pre> -->
+<p> formBusqueda.invalid </p>
+<pre> {{formBusqueda.invalid}} </pre> -->
