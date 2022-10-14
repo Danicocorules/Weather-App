@@ -17,7 +17,7 @@ export class PedidosListaComponent implements OnInit {
     this.initPedidos();
   }
 
-  initPedidos() {
+  public initPedidos() {
     this.pedidosServ.getPedidos()
     .subscribe( (resp: Pedido[]) => {
       this.pedidos = resp;

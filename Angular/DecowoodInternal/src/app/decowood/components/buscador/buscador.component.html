@@ -1,17 +1,27 @@
+<div>
 <form class="buscador-pedido"
       [formGroup]="formBusqueda">
-<mat-form-field appearance="fill">
-  <mat-label>Busqueda por ID</mat-label>
-  <input matInput
-         formControlName="busqueda">
-</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Busqueda por ID</mat-label>
+    <input matInput
+          formControlName="busqueda">
+  </mat-form-field>
 </form>
 
-<button mat-raised-button color="primary"
-        (click)="buscarPedido()"
-        >Buscar
-</button>
+  <button mat-raised-button color="primary"
+          (click)="buscarPedido()"
+          >Buscar
+  </button>
 
+  <button mat-button
+          color="primary"
+          class="m-3"
+          *ngIf="busqueda"
+          (click)="volverPedidos()"
+          >
+          Volver a Pedidos
+  </button>
+</div>
 <div class="resp"
       *ngIf="validate()">
    <span>El ID no es correcto</span>
