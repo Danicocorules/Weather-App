@@ -1,8 +1,8 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-// import { MatPaginatorModule} from '@angular/material/paginator';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Proveedores } from '../../interfaces/proveedores.interface';
 import { MatPaginator } from '@angular/material/paginator';
+import { ProveedoresService } from 'src/app/services/proveedores.service';
 
 @Component({
   selector: 'app-proveedores',
@@ -10,21 +10,29 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./proveedores.component.scss']
 })
 
-export class ProveedoresComponent implements OnInit, AfterViewInit {
+export class ProveedoresComponent implements OnInit {
 
   displayedColumns: string[] = ['nombre', 'pedidos', 'localizacion', 'contacto'];
-  dataSource: MatTableDataSource<any[]> = new MatTableDataSource<any>(ELEMENT_DATA);
+  proveedores: Proveedores[] = [];
 
-  constructor() { }
+  dataSource!: any;
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  constructor( private proveedoresServ: ProveedoresService ) {}
+
+  @ViewChild(MatPaginator, { static: true } ) paginator!: MatPaginator;
 
   ngOnInit(): void {
+
+    this.proveedoresServ.getProveedores()
+      .subscribe( (proveedores: any) => {
+        this.proveedores = proveedores;
+      });
+
+      this.dataSource = new MatTableDataSource<Proveedores>(this.proveedores);
+      this.dataSource.paginator = this.paginator;
+
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.paginator = this.paginator;
-  }
 }
 
 const ELEMENT_DATA: Proveedores[] = [

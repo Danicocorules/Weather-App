@@ -11,7 +11,6 @@ import { Pedido } from '../decowood/interfaces/pedidos.interface';
 export class PedidosService {
 
   private pedidosUrl: string = 'http://localhost:3000/pedidos';
-  private pedidoSingleUrl: string = 'http://localhost:3000/pedidos?pedido_id=485754';
 
   constructor( private http: HttpClient ) { }
 

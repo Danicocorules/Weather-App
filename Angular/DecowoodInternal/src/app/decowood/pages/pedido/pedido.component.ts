@@ -14,7 +14,7 @@ export class PedidoComponent implements OnInit {
   pedidoRequerido: Pedido[] = [];
 
   constructor( private activatedRoute: ActivatedRoute,
-    private pedidosServ: PedidosService ) { }
+               private pedidosServ: PedidosService ) { }
 
     ngOnInit(): void {
 

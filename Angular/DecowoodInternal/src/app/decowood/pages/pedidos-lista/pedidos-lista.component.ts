@@ -14,6 +14,10 @@ export class PedidosListaComponent implements OnInit {
   constructor( private pedidosServ: PedidosService ) { }
 
   ngOnInit(): void {
+    this.initPedidos();
+  }
+
+  initPedidos() {
     this.pedidosServ.getPedidos()
     .subscribe( (resp: Pedido[]) => {
       this.pedidos = resp;
