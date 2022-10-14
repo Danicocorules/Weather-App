@@ -26,15 +26,21 @@ export class BuscadorComponent {
   })
 
   buscarPedido() {
-    this.busqueda = true;
-    this.idBusq = ( Number( this.formBusqueda.controls['busqueda'].value ) );
-    this.idBusqueda.emit( this.idBusq );
-    this.formBusqueda.reset();
+
+
+    if ( !this.validate()) {
+      this.busqueda = true;
+      this.idBusq = ( Number( this.formBusqueda.controls['busqueda'].value ) );
+      this.idBusqueda.emit( this.idBusq );
+      this.formBusqueda.reset();
+    }
+
   }
 
   volverPedidos() {
     this.busqueda = false;
     this.pedidosComp.initPedidos();
+    this.formBusqueda.reset();
   }
 
   validate() {
