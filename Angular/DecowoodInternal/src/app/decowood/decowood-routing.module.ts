@@ -6,6 +6,7 @@ import { ComandasComponent } from './pages/comandas/comandas.component';
 import { PedidoComponent } from './pages/pedido/pedido.component';
 import { PedidosListaComponent } from './pages/pedidos-lista/pedidos-lista.component';
 import { ProveedoresComponent } from './pages/proveedores/proveedores.component';
+import { ProveedorUnicoComponent } from './pages/proveedor-unico/proveedor-unico.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: 'pedido/:idPedido', component: PedidoComponent},
       { path: 'agregar-pedido', component: AgregarPedidoComponent},
       { path: 'proveedores', component: ProveedoresComponent},
+      { path: 'proveedor/:nombre', component: ProveedorUnicoComponent},
       { path: 'comandas', component: ComandasComponent},
       { path: '**', redirectTo: 'pedidos'},
     ]

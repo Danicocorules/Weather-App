@@ -1,0 +1,29 @@
+<div class="row"
+     *ngFor="let item of provRequerido">
+
+     <div class="col-12">
+      <h2 class="dp-cnt"> {{ item.nombre }} </h2>
+      <button mat-button
+                color="primary"
+                class="ms-3"
+                [routerLink]="['/decowood/proveedores']">
+                Volver a Proveedores
+      </button>
+      <hr>
+
+      {{item.pedidos_asignados}}
+      {{item.localizacion}}
+      {{item.contacto}}
+      {{item.proveedor_id}}
+
+
+    </div>
+</div>
+
+
+
+<!-- nombre: string;
+pedidos_asignados: number;
+localizacion: string;
+contacto: string;
+proveedor_id: number; -->

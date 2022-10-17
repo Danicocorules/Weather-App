@@ -26,15 +26,12 @@ export class BuscadorComponent {
   })
 
   buscarPedido() {
-
-
     if ( !this.validate()) {
       this.busqueda = true;
       this.idBusq = ( Number( this.formBusqueda.controls['busqueda'].value ) );
       this.idBusqueda.emit( this.idBusq );
       this.formBusqueda.reset();
     }
-
   }
 
   volverPedidos() {

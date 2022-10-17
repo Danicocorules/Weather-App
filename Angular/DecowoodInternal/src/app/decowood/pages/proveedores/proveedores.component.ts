@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Proveedores } from '../../interfaces/proveedores.interface';
 import { MatPaginator } from '@angular/material/paginator';
 import { ProveedoresService } from 'src/app/services/proveedores.service';
+import { ActivatedRoute } from '@angular/router';
+// import { switchMap } from 'rxjs/dist/types/operators';
 
 @Component({
   selector: 'app-proveedores',
@@ -12,12 +14,14 @@ import { ProveedoresService } from 'src/app/services/proveedores.service';
 
 export class ProveedoresComponent implements OnInit {
 
-  displayedColumns: string[] = ['nombre', 'pedidos', 'localizacion', 'contacto'];
+  displayedColumns: string[] = ['nombre', 'pedidos', 'localizacion', 'contacto', 'enlace'];
   proveedores: Proveedores[] = [];
+  provBusqueda!: any;
 
   dataSource!: any;
 
-  constructor( private proveedoresServ: ProveedoresService ) {}
+  constructor( private proveedoresServ: ProveedoresService,
+               private activatedRoute: ActivatedRoute ) {}
 
   @ViewChild(MatPaginator, { static: true } ) paginator!: MatPaginator;
 
@@ -28,28 +32,14 @@ export class ProveedoresComponent implements OnInit {
         this.proveedores = proveedores;
       });
 
-      this.dataSource = new MatTableDataSource<Proveedores>(this.proveedores);
-      this.dataSource.paginator = this.paginator;
+    this.dataSource = new MatTableDataSource<Proveedores>(this.proveedores);
 
   }
 
-}
+  buscarNombre( nombre: string ) {
 
-const ELEMENT_DATA: Proveedores[] = [
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'},
-  {nombre: 'proveedor 1', pedidos_asignados: 2, localizacion: 'Barcelona', contacto: 'contacto@gmail.com'}
-];
+    this.proveedoresServ.getProvBusq(nombre)
+      .subscribe( (provBusq: any) => this.proveedores = provBusq );
+  }
+
+}

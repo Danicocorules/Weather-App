@@ -3,4 +3,5 @@ export interface Proveedores {
   pedidos_asignados: number;
   localizacion: string;
   contacto: string;
+  proveedor_id: number;
 }

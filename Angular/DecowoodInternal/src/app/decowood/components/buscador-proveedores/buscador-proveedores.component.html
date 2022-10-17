@@ -1,0 +1,14 @@
+
+<form class="buscador-proveedor"
+      [formGroup]="formBusqProv">
+  <mat-form-field appearance="fill">
+    <mat-label>Buscar Proveedor</mat-label>
+    <input matInput
+          formControlName="busqProv">
+  </mat-form-field>
+</form>
+
+<button mat-raised-button color="primary"
+        (click)="buscarProv()">
+        Buscar
+</button>

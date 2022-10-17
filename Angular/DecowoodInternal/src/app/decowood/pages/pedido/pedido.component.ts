@@ -18,21 +18,13 @@ export class PedidoComponent implements OnInit {
 
     ngOnInit(): void {
 
-      // this.activatedRoute.params
-      //   .subscribe( data => {
-        //     this.pedidoRequerido = data['idPedido'];
-        //     this.pedidosServ.getSinglePedido( this.pedidoRequerido )
-        //       .subscribe( resp => console.log(resp) );
-        //   } );
-
         this.activatedRoute.params
         .pipe(
           switchMap( ({ idPedido }) => this.pedidosServ.getSinglePedido( idPedido ) )
           )
           .subscribe( ( resp: any ) => {
+            console.log(resp);
             this.pedidoRequerido = resp;
-            console.log(this.pedidoRequerido);
           } );
         }
-
 }

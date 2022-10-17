@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PedidosService } from '../../../services/pedidos.service';
 import { Pedido } from '../../interfaces/pedidos.interface'
 
@@ -32,12 +32,3 @@ export class PedidosListaComponent implements OnInit {
 }
 
 
-
-
-
-    // this.pedidosServ.getSinglePedido( this.idBusq )
-    //   .subscribe( ( pedido:any ) =>  {
-    //     this.pedidoBusq = pedido;
-    //     this.idBusqueda.emit( this.pedidoBusq );
-    //     console.log('BUSCADOR', this.pedidoBusq);
-    //   } );

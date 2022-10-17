@@ -12,6 +12,8 @@ import { ComandasComponent } from './pages/comandas/comandas.component';
 import { PedidoComponent } from './pages/pedido/pedido.component';
 import { PedidosListaComponent } from './pages/pedidos-lista/pedidos-lista.component';
 import { ProveedoresComponent } from './pages/proveedores/proveedores.component';
+import { ProveedorUnicoComponent } from './pages/proveedor-unico/proveedor-unico.component';
+import { BuscadorProveedoresComponent } from './components/buscador-proveedores/buscador-proveedores.component';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { ProveedoresComponent } from './pages/proveedores/proveedores.component'
     PedidoComponent,
     PedidosListaComponent,
     ProveedoresComponent,
-    BuscadorComponent,
+    ProveedorUnicoComponent,
+    BuscadorProveedoresComponent,
   ],
   imports: [
     CommonModule,

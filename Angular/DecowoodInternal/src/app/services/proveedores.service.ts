@@ -11,9 +11,13 @@ export class ProveedoresService {
 
   constructor( private http: HttpClient ) { }
 
-  proveedoresUrl:string = 'http://localhost:3000/proveedores';
+  private proveedoresUrl:string = 'http://localhost:3000/proveedores';
 
   getProveedores(): Observable<Proveedores[]> {
     return this.http.get<Proveedores[]>(this.proveedoresUrl);
+  }
+
+  getProvBusq( nombre: string ): Observable<Proveedores> {
+    return this.http.get<Proveedores>( `http://localhost:3000/proveedores?nombre=${nombre}` );
   }
 }
