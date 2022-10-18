@@ -23,7 +23,6 @@ export class PedidoComponent implements OnInit {
           switchMap( ({ idPedido }) => this.pedidosServ.getSinglePedido( idPedido ) )
           )
           .subscribe( ( resp: any ) => {
-            console.log(resp);
             this.pedidoRequerido = resp;
           } );
         }

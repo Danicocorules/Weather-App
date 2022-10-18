@@ -1,25 +1,76 @@
-<div class="row"
-     *ngFor="let item of provRequerido">
+<div *ngIf="!provRequerido">
+  <mat-spinner></mat-spinner>
+</div>
+<!-- <ng-template #divProv> -->
 
-     <div class="col-12">
-      <h2 class="dp-cnt"> {{ item.nombre }} </h2>
+<div class="row">
+     <div class="col-12" *ngIf="provRequerido">
+      <h2 class="dp-cnt"> {{ provRequerido.nombre }} </h2>
       <button mat-button
                 color="primary"
                 class="ms-3"
                 [routerLink]="['/decowood/proveedores']">
                 Volver a Proveedores
       </button>
+      <button mat-button
+                color="accent"
+                class="ms-3  float-end"
+                (click)="editProv()">
+                Editar
+      </button>
       <hr>
 
-      {{item.pedidos_asignados}}
-      {{item.localizacion}}
-      {{item.contacto}}
-      {{item.proveedor_id}}
+      <div *ngIf="!this.edit">
+        <p>Pedidos: {{provRequerido.pedidos_asignados}}</p>
+        <p>Localización: {{provRequerido.localizacion}}</p>
+        <p>contacto:{{provRequerido.contacto}}</p>
+        <p>ID: {{provRequerido.id}}</p>
+      </div>
 
+      <div *ngIf="this.edit">
+        <form [formGroup]="editForm">
 
+          <div class="col-4">
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input formControlName="nombre"
+                      matInput>
+            </mat-form-field>
+          </div>
+
+          <div class="col-4">
+            <mat-form-field appearance="fill">
+              <mat-label>Pedidos </mat-label>
+              <input formControlName="pedidos"
+                      matInput>
+            </mat-form-field>
+          </div>
+
+          <div class="col-4">
+            <mat-form-field appearance="fill">
+              <mat-label>Localización</mat-label>
+              <input formControlName="localizacion"
+                      matInput>
+            </mat-form-field>
+          </div>
+
+        </form>
+
+        <button mat-raised-button
+                color="primary"
+                (click)="guardarCambios()">
+                Guradar cambios
+        </button>
+        <button mat-button
+                color="primary"
+                class="ms-3"
+                (click)="cancelarCambios()">
+                Cancelar cambios
+        </button>
+      </div>
     </div>
 </div>
-
+<!-- </ng-template> -->
 
 
 <!-- nombre: string;
