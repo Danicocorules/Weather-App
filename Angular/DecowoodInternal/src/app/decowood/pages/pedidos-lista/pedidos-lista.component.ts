@@ -9,7 +9,7 @@ import { Pedido } from '../../interfaces/pedidos.interface'
 })
 export class PedidosListaComponent implements OnInit {
 
-  pedidos: Pedido[] = [];
+  pedidos!: Pedido[];
 
   constructor( private pedidosServ: PedidosService ) { }
 

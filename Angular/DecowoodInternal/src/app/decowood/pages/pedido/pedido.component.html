@@ -1,33 +1,37 @@
-<div class="row"
-      *ngFor="let item of pedidoRequerido">
-      <div class="col-12">
-        <h2 class="dp-cnt">Pedido: {{ item.pedido_id }}</h2>
+<div *ngIf="pedidoRequerido">
+  <div class="row">
+        <div class="col-12">
+          <h2 class="dp-cnt">Pedido: {{ pedidoRequerido.id }}</h2>
+          <button mat-button
+                  color="primary"
+                  class="ms-3"
+                  [routerLink]="['/decowood/pedidos']">
+                  Volver a Pedidos
+          </button>
+        </div>
+  </div>
+  <div class="row">
+    <div class="col-12"><hr></div>
+  </div>
 
-        <button mat-button
+  <div class="row">
+    <div class="col-12">
+        <h3>Estado del pedido: {{ pedidoRequerido.estado_pedido }} </h3>
+        <h3>Productos: {{ pedidoRequerido.productos }} </h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-10">
+      <app-card-ped-producto [productosRecibidos]="productos" class="row ms-0"></app-card-ped-producto>
+    </div>
+    <div class="col-2">
+        <button mat-raised-button
                 color="primary"
-                class="ms-3"
-                [routerLink]="['/decowood/pedidos']">
-                Volver a Pedidos
-        </button>
+                (click)="guardarProveedor()">
+        Guardar Cambios
+</button>
+    </div>
+  </div>
 
-      </div>
-      <div class="col-12"><hr></div>
-
-      <div class="col-12">
-          Estado del pedido: {{ item.estado_pedido }} <br>
-          Productos: {{ item.productos }} <br>
-
-        <mat-card class="pedido-card col-5"
-                  *ngFor="let prod of item.producto_detalle">
-          <mat-card-content>
-              {{ prod.nombre }} <br>
-              SKU: {{ prod.sku }} <br>
-              Categoria: {{ prod.categoria }} <br>
-              Subcategoría: {{ prod.subcategoria }} <br>
-              Color: {{ prod.color }} <br>
-              Unidades: {{ prod.unidades }} <br>
-          </mat-card-content>
-        </mat-card>
-
-      </div>
 </div>

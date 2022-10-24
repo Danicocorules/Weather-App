@@ -19,7 +19,7 @@ export class PedidosService {
   }
 
   getSinglePedido( id: any ): Observable<Pedido> {
-    return this.http.get<Pedido>( `http://localhost:3000/pedidos?pedido_id=${id}` )
+    return this.http.get<Pedido>( `http://localhost:3000/pedidos/${id}` )
   }
 
 }

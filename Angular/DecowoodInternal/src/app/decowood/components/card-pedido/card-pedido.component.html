@@ -1,6 +1,6 @@
 <mat-card class="pedido-card">
     <mat-card-header>
-      <mat-card-title class=" text-center">{{ pedidosAct.pedido_id }}</mat-card-title>
+      <mat-card-title class=" text-center">{{ pedidosAct.id }}</mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
@@ -17,7 +17,7 @@
     <mat-card-actions>
       <button mat-raised-button
               color="primary"
-              [routerLink]="['/decowood/pedido', pedidosAct.pedido_id]">
+              [routerLink]="['/decowood/pedido', pedidosAct.id]">
               Ver pedido
       </button>
     </mat-card-actions>
