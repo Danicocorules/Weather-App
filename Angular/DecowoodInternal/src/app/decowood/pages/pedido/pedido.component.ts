@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { PedidosService } from 'src/app/services/pedidos.service';
 import { Pedido, ProductoDetalle } from '../../interfaces/pedidos.interface';
 import { switchMap } from 'rxjs/operators';
-import { Proveedores } from '../../interfaces/proveedores.interface'
 
 @Component({
   selector: 'app-pedido',
@@ -15,9 +14,7 @@ export class PedidoComponent implements OnInit {
   pedidoRequerido!: Pedido;
   productos!: ProductoDetalle[];
 
-  proveedores!: Proveedores[];
-  assign: boolean = false;
-
+  prodsDef!: ProductoDetalle[];
 
   constructor( private activatedRoute: ActivatedRoute,
                private pedidosServ: PedidosService
@@ -34,9 +31,17 @@ export class PedidoComponent implements OnInit {
       });
     }
 
-    guardarProveedor() {
-      console.log('se edita el prod');
+    guardarCambios(){
 
+      this.pedidoRequerido.producto_detalle = this.prodsDef;
+
+      this.pedidosServ.putPedido( this.pedidoRequerido )
+        .subscribe( (resp:any) => this.pedidoRequerido = resp );
+      console.log('finito');
+    }
+
+    recibirCambios( prodModif:any ) {
+      this.prodsDef = prodModif;
     }
 
 }

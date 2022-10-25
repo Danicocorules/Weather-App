@@ -37,6 +37,9 @@ import { ProveedorUnicoComponent } from './pages/proveedor-unico/proveedor-unico
     MaterialModule,
     ReactiveFormsModule,
     FormsModule
+  ],
+  providers: [
+    CardPedProductoComponent
   ]
 })
 export class DecowoodModule { }

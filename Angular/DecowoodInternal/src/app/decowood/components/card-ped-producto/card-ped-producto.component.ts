@@ -1,17 +1,17 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { ProveedoresService } from 'src/app/services/proveedores.service';
 
 import { ProductoDetalle } from '../../interfaces/pedidos.interface';
 import { Proveedores } from '../../interfaces/proveedores.interface';
+import { PedidosService } from 'src/app/services/pedidos.service';
 
 @Component({
   selector: 'app-card-ped-producto',
   templateUrl: './card-ped-producto.component.html',
   styleUrls: ['./card-ped-producto.component.scss']
 })
-export class CardPedProductoComponent implements OnInit, OnChanges {
-
+export class CardPedProductoComponent implements OnInit {
 
   @Input() productosRecibidos!: ProductoDetalle[];
   proveedores!: Proveedores[];
@@ -20,17 +20,14 @@ export class CardPedProductoComponent implements OnInit, OnChanges {
   assign: boolean = false;
 
   prodModif!: ProductoDetalle | any;
-  prodFinales!: ProductoDetalle[];
+  // prodFinales!: ProductoDetalle[];
 
-  constructor( private proveedorServ: ProveedoresService ) { }
+  @Output() prodDefinitivos: EventEmitter< ProductoDetalle | ProductoDetalle[] > = new EventEmitter();
 
-  ngOnInit(): void {
+  constructor( private proveedorServ: ProveedoresService,
+               private pedidosServ: PedidosService ) { }
 
-  }
-
-  ngOnChanges( changes: SimpleChanges ): void {
-    console.log('entra', changes);
-  }
+  ngOnInit(): void {}
 
   asignProv() {
     this.assign = true;
@@ -50,8 +47,8 @@ export class CardPedProductoComponent implements OnInit, OnChanges {
 
       this.prodModif = this.productosRecibidos.find( prod => prod.sku === sku );
       this.prodModif.proveedor = nuevoProv;
-      console.log(this.productosRecibidos);
 
+      this.prodDefinitivos.emit( this.productosRecibidos );
   }
 
 }

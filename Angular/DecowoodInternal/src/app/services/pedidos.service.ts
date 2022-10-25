@@ -22,4 +22,9 @@ export class PedidosService {
     return this.http.get<Pedido>( `http://localhost:3000/pedidos/${id}` )
   }
 
+  putPedido( pedidoModif: Pedido ): Observable<Pedido> {
+    const id = pedidoModif.id;
+    return this.http.put<Pedido>( `http://localhost:3000/pedidos/${id}` , pedidoModif);
+  }
+
 }
