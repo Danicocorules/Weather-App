@@ -16,11 +16,6 @@ export class SidebarComponent {
       icon: 'home'
     },
     {
-      name: 'Pedido',
-      url: 'pedido/:id',
-      icon: 'shopping_cart_checkout'
-    },
-    {
       name: 'Argegar Pedido',
       url: 'agregar-pedido',
       icon: 'shopping_cart_checkout'

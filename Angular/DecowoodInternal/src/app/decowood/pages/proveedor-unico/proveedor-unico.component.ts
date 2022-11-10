@@ -41,11 +41,11 @@ export class ProveedorUnicoComponent implements OnInit {
       .subscribe( (resp: any) => {
 
         const id = resp[0].id;
-
+        console.log(resp);
         this.proveedorServ.getProvById(id)
           .subscribe( (proveedor: Proveedores) => this.provRequerido = proveedor  )
       } );
-    }
+  }
 
   editProv() {
     this.edit = true;
@@ -64,6 +64,7 @@ export class ProveedorUnicoComponent implements OnInit {
 
     this.proveedorServ.editProv( this.provRequerido )
       .subscribe( (prov:Proveedores) => this.provRequerido = prov );
+
   }
 
   cancelarCambios() {

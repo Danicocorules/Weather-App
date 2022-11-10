@@ -22,13 +22,11 @@ export class BuscadorProveedoresComponent implements OnInit {
   }
 
   buscarProv() {
-
     const busqueda = this.formBusqProv.controls['busqProv'].value.toLowerCase();
     const initial = busqueda.charAt(0).toUpperCase();
     const rest = busqueda.slice(1);
 
     this.nombreBusqueda = initial + rest;
-
     this.nombreBusq.emit(this.nombreBusqueda);
   }
 
