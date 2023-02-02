@@ -1,0 +1,20 @@
+
+  <div class="col-4 position-absolute top-50 start-50 translate-middle">
+    <p-card>
+      <h5 class="white">Selecciona una ciudad para empezar:</h5>
+
+      <div class="p-input-icon-left" [formGroup]="selectCity">
+          <i class="pi pi-search"></i>
+          <input type="text"
+                pInputText
+                placeholder="Ciudad"
+                formControlName="city">
+      </div>
+      <button pButton
+              type="button"
+              label="Buscar"
+              (click)="getCity()">
+      </button>
+    </p-card>
+  </div>
+
