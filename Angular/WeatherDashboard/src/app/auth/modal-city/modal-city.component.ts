@@ -39,8 +39,6 @@ export class ModalCityComponent {
 
           this.shareDataService.dataRec.emit(this.firstCityParams);
 
-
-
           //To Do --> Pillar el error de Ciudad no existente
 
         });
