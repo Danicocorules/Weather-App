@@ -11,8 +11,8 @@
         </div>
     </ng-template>
     <div class="text-center">
-        <h2>{{currentTemp}} ºC</h2>
-        <h2>Barcelona</h2>
-        <p>España</p>
+        <h2>{{ startCity.temp}} ºC</h2>
+        <h2>{{ startCity.city | titlecase }}</h2>
+        <p>{{ startCity.country }}</p>
     </div>
 </p-card>

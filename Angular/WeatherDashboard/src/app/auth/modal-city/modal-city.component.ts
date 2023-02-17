@@ -28,22 +28,22 @@ export class ModalCityComponent {
   )
 
   getCity() {
+
     this.firstCityParams.city = this.selectCity.controls['city'].value;
 
     this.introWeatherService.getPpalCity(this.firstCityParams.city)
-      .subscribe(
-        (resp) => {
+      .subscribe( (resp) => {
 
           this.firstCityParams.temp = resp.main.temp;
           this.firstCityParams.country = resp.sys.country;
 
-          this.shareDataService.dataRec.emit(this.firstCityParams);
 
-          //To Do --> Pillar el error de Ciudad no existente
+          this.shareDataService.emitCity( this.firstCityParams );
+
+          //ToDo --> Pillar el error de Ciudad no existente
 
         });
 
-        this.router.navigate(["/dashboard/initial"]);
+      this.router.navigateByUrl("/dashboard/initial");
   }
-
 }
