@@ -36,10 +36,8 @@ export class TodayCardComponent implements OnInit, OnDestroy{
   }
 
   setPpalCity( city: firstCityParams ) {
-
     this.startCity = city;
     this.startCity.temp = Number((this.startCity.temp - 273.15).toFixed(1));
-
   }
 
   ngOnDestroy(): void {

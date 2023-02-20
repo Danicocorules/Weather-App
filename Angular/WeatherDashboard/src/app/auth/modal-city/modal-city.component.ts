@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IntroWeatherService } from '../services/intro-weather.service';
 import { ShareDataService } from 'src/app/services/share-data.service';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -18,32 +19,48 @@ export class ModalCityComponent {
     country : ''
   }
 
+  typedCity: string = "";
+
   constructor( private introWeatherService: IntroWeatherService,
                private shareDataService: ShareDataService,
-               private router: Router
+               private router: Router,
+               private fb: FormBuilder
               ) {}
 
-  selectCity: FormGroup = new FormGroup(
-    { 'city': new FormControl('') }
-  )
+  selectCity: FormGroup = this.fb.group({
+    city: ['', Validators.required]
+  })
+
+  error: boolean = false;
 
   getCity() {
 
     this.firstCityParams.city = this.selectCity.controls['city'].value;
 
     this.introWeatherService.getPpalCity(this.firstCityParams.city)
-      .subscribe( (resp) => {
+      .subscribe(
+        (resp) => {
 
+          // Set Values in ppal City
           this.firstCityParams.temp = resp.main.temp;
           this.firstCityParams.country = resp.sys.country;
-
-
           this.shareDataService.emitCity( this.firstCityParams );
+          this.router.navigateByUrl("/dashboard/initial");
 
-          //ToDo --> Pillar el error de Ciudad no existente
-
-        });
-
-      this.router.navigateByUrl("/dashboard/initial");
+        },
+        (err) => {
+          this.handleError();
+        }
+      )
   }
-}
+
+  handleError() {
+    this.error = true;
+    this.typedCity = this.selectCity.controls['city'].value;
+    this.selectCity.reset();
+  }
+
+
+
+  }
+
