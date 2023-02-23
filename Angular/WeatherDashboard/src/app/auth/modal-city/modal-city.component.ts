@@ -28,7 +28,8 @@ export class ModalCityComponent {
               ) {}
 
   selectCity: FormGroup = this.fb.group({
-    city: ['', Validators.required]
+    city: ['', Validators.required],
+    name: ['Victor',[ Validators.required, Validators.minLength(3)] ]
   })
 
   error: boolean = false;
@@ -60,7 +61,5 @@ export class ModalCityComponent {
     this.selectCity.reset();
   }
 
-
-
-  }
+}
 

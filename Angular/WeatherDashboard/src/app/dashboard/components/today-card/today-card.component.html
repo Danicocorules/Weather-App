@@ -1,6 +1,6 @@
-<p-card>
+<p-card styleClass="dark-card">
     <ng-template pTemplate="header">
-        <div class="row">
+        <div class="grid">
           <div class="col-3">
             <p>Aqui va la IMG</p>
           </div>
@@ -15,4 +15,9 @@
         <h2>{{ startCity.city | titlecase }}</h2>
         <p>{{ startCity.country }}</p>
     </div>
+    <hr>
+    <div class="text-center mt-6">
+      <button pButton pRipple class="btn-ppal" type="button" label="Remove Principal City"></button>
+    </div>
+
 </p-card>

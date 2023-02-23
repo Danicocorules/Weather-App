@@ -1,16 +1,31 @@
 
-  <div class="col-6 position-absolute top-50 start-50 translate-middle">
-    <p-card>
-      <h5 class="white">Select a city from around the world:</h5>
+<div class="grid">
+  <div class="col-6 col-offset-3 mt-8 vertical-align-middle">
+
+    <p-card styleClass="dark-card">
+      <h4 class="white m-0">Select a city from around the world:</h4>
       <form  [formGroup]="selectCity">
         <div class="p-input-icon-left mt-4">
             <i class="pi pi-search"></i>
             <input type="text"
                   pInputText
                   placeholder="Type a city"
-
                   formControlName="city">
         </div>
+        <div class="mt-6">
+        <h4 class="white m-0">
+            Write your name or alias so that we can refer to you:</h4>
+            <div class="p-input-icon-left mt-4">
+                <span class="p-float-label">
+                <input type="text"
+                      pInputText
+                      placeholder="Type your Name"
+                      formControlName="name">
+                </span>
+            </div>
+          </div>
+
+
       </form>
       <button pButton
               type="button"
@@ -19,10 +34,9 @@
               (click)="getCity()">
       </button>
 
-      <p *ngIf="error" class="mt-4 text-red-500">
+      <p *ngIf="error" class="mt-4 text-red-500 error-box">
         <b>{{ typedCity | titlecase}}</b> does not exist in the whole world... or it is not misspelled. Try again.
       </p>
-
     </p-card>
   </div>
-
+</div>

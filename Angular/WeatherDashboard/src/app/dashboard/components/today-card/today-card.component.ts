@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { ActualWeatherService } from 'src/app/dashboard/services/actual-weather.service';
 import { firstCityParams } from 'src/app/interfaces/first-city-params.interface';
 import { ShareDataService } from 'src/app/services/share-data.service';
 
@@ -23,8 +22,7 @@ export class TodayCardComponent implements OnInit, OnDestroy{
 
   private countrySubs!: Subscription;
 
-  constructor( private dataActual: ActualWeatherService,
-               private shareDataSev: ShareDataService ){ }
+  constructor( private shareDataSev: ShareDataService ){ }
 
   ngOnInit(): void {
     this.escuchaPrimerPais();
