@@ -8,10 +8,6 @@
 
     <app-new-location-card></app-new-location-card>
 
-    <p class="dark-text">
-      The are no locations yet...
-    </p>
-
     <div *ngIf="addCity">
       <form [formGroup]="locationForm"  class="bg-light p-3 m-1 grid" (submit)="setLocation();">
           <span class="col-8 p-float-label">

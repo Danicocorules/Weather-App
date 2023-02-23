@@ -51,6 +51,8 @@ export class FavCitiesComponent {
     const newLocationAsArray = Object.entries( this.newLocation );
     const newLocationFiltredData = newLocationAsArray.filter( ([key, value]) => value === true );
 
+    console.log(newLocationFiltredData);
+
     this.emptyWeather.getWeatherData( this.locationForm.value.location )
       .subscribe( resp => {
 
@@ -58,23 +60,23 @@ export class FavCitiesComponent {
 
           switch (elem[0]) {
             case 'description':
-              this.newLocation.description = resp.weather[0].description;
+              this.newLocation.description = resp.weather[0].description || null;
               break;
 
             case 'temperature':
-              this.newLocation.temperature = resp.main.temp;
+              this.newLocation.temperature = resp.main.temp || null;
               break;
 
             case 'minMaxTemp':
-              this.newLocation.minMaxTemp = [resp.main.temp_min, resp.main.temp_max];
+              this.newLocation.minMaxTemp = [resp.main.temp_min, resp.main.temp_max] || null;
               break;
 
             case 'visibility':
-              this.newLocation.visibility = resp.visibility;
+              this.newLocation.visibility = resp.visibility || null;
               break;
 
               case 'wind':
-              this.newLocation.wind = resp.wind.speed;
+              this.newLocation.wind = resp.wind.speed || null;
               break;
 
             default:

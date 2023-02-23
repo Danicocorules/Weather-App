@@ -1,30 +1,40 @@
+    <p class="dark-text" *ngIf="savedLocations.length === 0">
+      The are no locations yet...
+    </p>
 
-
-<p-card *ngFor="let location of savedLocations" styleClass="dark-card-location mt-3">
+    <p-card *ngFor="let location of savedLocations" styleClass="dark-card-location mt-3">
     <div class="grid">
 
-      <div class="col-10 ">
-        {{ location.location }}
+      <div class="col-11 ">
+        <p class="m-0 location-title">{{ location.location }}</p>
       </div>
-      <div class="col-2">X</div>
+      <div class="col-1">
+          <i class="pi pi-times"></i>
+      </div>
 
       <div class="col-4">
-        Description: {{ location.description }}
+        <p class="m-0 ">Description:</p>
+        <p class="m-0 location-desc">{{ location.description }}</p>
       </div>
       <div class="col-4">
-        Temperature: {{ location.temperature }}
+         <p class="m-0 ">Temperature:</p>
+         <p class="m-0 location-desc">{{ location.temperature }}</p>
       </div>
       <div class="col-4">
-        Max. Temp: {{ location.minMaxTemp[0] }}
+         <p class="m-0 ">Max. Temp:</p>
+          <p class="m-0 location-desc">{{ location.minMaxTemp[0] }}</p>
       </div>
       <div class="col-4">
-          Min. Temp: {{ location.minMaxTemp[1] }}
+           <p class="m-0 ">Min. Temp:</p>
+          <p class="m-0 location-desc">{{ location.minMaxTemp[1] }}</p>
         </div>
       <div class="col-4">
-          Visibility: {{ location.visibility }}
+           <p class="m-0 ">Visibility:</p>
+          <p class="m-0 location-desc">{{ location.visibility }}</p>
       </div>
       <div class="col-4">
-        Wind: {{ location.wind }}
+         <p class="m-0 ">Wind:</p>
+        <p class="m-0 location-desc">{{ location.wind }}</p>
       </div>
 
   </div>

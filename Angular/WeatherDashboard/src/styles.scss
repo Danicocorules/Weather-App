@@ -66,13 +66,21 @@ button.p-element.btn-add-city.p-button.p-component {
 .dark-card-location {
   &.p-card {
     background: $main-black;
-    border-radius: 0rem;
+    border-radius: 0.4em;
     overflow: hidden;
-    padding: 15px;
+    padding: 0px 15px 0px 15px;
+    margin-bottom: 15px;
     color: $main-white;
   }
 }
-
+.location-desc {
+  font-size: 1.25em;
+  color: $main-yellow;
+}
+.location-title {
+  font-size: 1.25em;
+  font-weight: 800;
+}
 .light-card {
   &.p-card {
     background: $main-purple;
