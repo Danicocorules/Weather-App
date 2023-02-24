@@ -39,9 +39,6 @@ export class FavCitiesComponent {
 
   addNewCity() {
     this.addCity = true;
-
-    // ToDo - deshabilitar el boton
-
   }
 
   setLocation() {
@@ -86,5 +83,7 @@ export class FavCitiesComponent {
          })
       });
       this.setNewLocationServ.emitLocation( this.newLocation );
+      this.locationForm.reset();
+      this.addCity = false;
   }
 }

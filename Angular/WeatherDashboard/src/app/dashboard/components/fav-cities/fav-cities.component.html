@@ -12,7 +12,7 @@
       <form [formGroup]="locationForm"  class="bg-light p-3 m-1 grid" (submit)="setLocation();">
           <span class="col-8 p-float-label">
               <p class="dark-text">Add new location</p>
-              <input formControlName="location" id="add-new-location" type="text" pInputText>
+              <input formControlName="location" id="add-new-location" type="text" pInputText autocomplete="off">
           </span>
           <span class="col-6">
               <p-checkbox formControlName="description" [binary]="true" label="Fast Description"></p-checkbox>
@@ -43,6 +43,7 @@
         <div class="text-center mt-3">
           <button pButton pRipple class="btn-select-city" type="button"
                   label="Add another city"
+                  [disabled]="addCity"
                   (click)="addNewCity()"></button>
         </div>
 </p-card>
