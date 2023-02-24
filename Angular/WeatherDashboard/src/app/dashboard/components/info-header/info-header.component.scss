@@ -1,0 +1,7 @@
+@import "/src/app/vars.scss";
+.header {
+  background: $main-low-purple;
+  padding: 20px;
+  // border-left: 1px solid $main-black;
+  border-bottom: 1px solid $main-black;
+}

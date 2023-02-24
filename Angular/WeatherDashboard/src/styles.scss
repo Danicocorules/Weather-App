@@ -1,23 +1,101 @@
 @import "/src/app/vars.scss";
-
 body {
+
   height: 100%;
   background: $color-background;
+  margin: 0px;
+  font-family: Raleway;
 }
 
 p, h1, h2, h3, h4, h5, h6 {
   color: $color-text;
+  font-family: Raleway;
 }
 
+label.p-checkbox-label,
+.p-inputtext {
+  color: $main-black;
+  font-family: Raleway;
+}
 
+//Background
+.bg-dark{
+  background: $main-black;
+}
+.bg-light{
+  background: $main-white;
+}
+
+// Buttons
+.btn-ppal {
+  background: $main-yellow !important;
+  color: $main-black !important;
+  border: 2px solid $main-yellow !important;
+}
+
+button.p-element.btn-select-city.p-button.p-component {
+  width: 100%;
+  padding: 1rem;
+  background: $main-white;
+  color: $main-black;
+  border: 1px solid $main-black;
+}
+button.p-element.btn-add-city.p-button.p-component {
+  padding: 1rem;
+  background: $main-purple;
+  color: $main-black;
+  border: 1px solid $main-black;
+}
 .hs-100 {
   height: 100vh;
   background: $main-purple;
   padding: 15px;
 }
-.p-card.p-component {
-  padding: 20px;
-  background: $main-black;
-  border-radius: 8px;
+
+// Cards
+.dark-card {
+  &.p-card {
+    background: $main-black;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    padding: 15px;
+    color: $main-white;
+  }
 }
 
+.dark-card-location {
+  &.p-card {
+    background: $main-black;
+    border-radius: 0.4em;
+    overflow: hidden;
+    padding: 0px 15px 0px 15px;
+    margin-bottom: 15px;
+    color: $main-white;
+  }
+}
+.location-desc {
+  font-size: 1.25em;
+  color: $main-yellow;
+}
+.location-title {
+  font-size: 1.25em;
+  font-weight: 800;
+}
+.light-card {
+  &.p-card {
+    background: $main-purple;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    padding: 15px;
+  }
+}
+
+.p-card .p-card-body,
+.p-card .p-card-footer {
+  padding: 0rem !important;
+}
+
+//text
+.dark-text {
+  color: $main-black;
+}

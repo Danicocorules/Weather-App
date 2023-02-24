@@ -3,26 +3,35 @@ import { CommonModule } from '@angular/common';
 
 import { PrimeNgModule } from './../prime-ng/prime-ng.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { ActualWeatherService } from './services/actual-weather.service'
+
+import { EmptyWeatherService } from './services/empty-weather.service'
 
 import { InitialComponent } from './pages/initial/initial.component';
 import { LeftNavComponent } from './components/left-nav/left-nav.component';
-import { TodayCardComponent } from './components/today-card/today-card.component'
+import { TodayCardComponent } from './components/today-card/today-card.component';
+import { InfoHeaderComponent } from './components/info-header/info-header.component';
+import { FavCitiesComponent } from './components/fav-cities/fav-cities.component';
+import { NewLocationCardComponent } from './components/new-location-card/new-location-card.component';
 
 @NgModule({
   declarations: [
     InitialComponent,
     LeftNavComponent,
-    TodayCardComponent
+    TodayCardComponent,
+    InfoHeaderComponent,
+    FavCitiesComponent,
+    NewLocationCardComponent
   ],
   imports: [
     CommonModule,
+    DashboardRoutingModule,
     PrimeNgModule,
-    DashboardRoutingModule
+    ReactiveFormsModule
   ],
   providers: [
-    ActualWeatherService
+    EmptyWeatherService
   ],
 })
 export class DashboardModule { }
