@@ -55,8 +55,24 @@ export class NewLocationCardComponent implements OnInit, OnDestroy{
     }
   }
 
-  deleteLocation(s: any) {
+  deleteLocation(localization: any) {
     // ToDo - Eliminar una ubicacion
+
+    const deletedLoca = localization.getAttribute('data-location');
+
+    this.savedLocations = this.savedLocations.filter( el => el.location !== deletedLoca );
+
+    // console.log( localStorage.length );
+
+    // for (let j = 1; j <= localStorage.length; j++ ) {
+
+    //   localStorage.getItem( )
+
+    // }
+
+
+
+
   }
 
   showLocation() {

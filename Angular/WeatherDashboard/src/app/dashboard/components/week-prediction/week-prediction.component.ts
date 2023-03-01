@@ -37,7 +37,6 @@ export class WeekPredictionComponent implements OnInit{
     this.forecastServ.getCityForecast( lat, lon )
       .subscribe( resp => {
         this.ppalForecast = [resp.list[0], resp.list[8], resp.list[16], resp.list[24], resp.list[32]];
-        console.log(this.ppalForecast);
 
         this.ppalForecast.forEach( element => {
 
@@ -51,17 +50,8 @@ export class WeekPredictionComponent implements OnInit{
           delete element.main;
         });
 
-        this.forecastDays( );
-
       });
   }
-
-  forecastDays( ) {
-    //console.log( this.citierArr );
-  }
-
-
-
 
 }
 

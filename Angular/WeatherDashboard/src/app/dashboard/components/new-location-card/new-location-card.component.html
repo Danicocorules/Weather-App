@@ -9,8 +9,8 @@
         <p class="m-0 location-title">{{ location.location }}</p>
       </div>
       <div class="col-1">
-          <button class="clean-btn" attr.data-location="{{ location.location }}" type="button"
-          (click)="deleteLocation($event)" >
+          <button #deletedCity class="clean-btn" attr.data-location="{{ location.location }}" type="button"
+          (click)="deleteLocation(deletedCity)" >
             <i class="pi pi-times"></i>
           </button>
       </div>
