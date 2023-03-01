@@ -22,6 +22,7 @@ export class ModalCityComponent {
   }
 
   typedCity: string = "";
+  userName: string = "";
 
   constructor( private introWeatherService: IntroWeatherService,
                private shareDataService: ShareDataService,
@@ -31,12 +32,21 @@ export class ModalCityComponent {
 
   selectCity: FormGroup = this.fb.group({
     city: ['', Validators.required],
-    name: ['',[ Validators.required, Validators.minLength(3)] ]
+    userName: ['',[ Validators.required, Validators.minLength(3)] ]
   })
 
   error: boolean = false;
+  nameError: boolean = false;
 
   getCity() {
+    console.log(this.selectCity.value);
+    console.log(this.selectCity.valid);
+    console.log(this.selectCity.controls['userName'].valid);
+
+    if ( this.selectCity.invalid ) {
+      this.nameError = true;
+      return;
+    }
 
     this.firstCityParams.city = this.selectCity.controls['city'].value;
 
@@ -64,6 +74,5 @@ export class ModalCityComponent {
     this.typedCity = this.selectCity.controls['city'].value;
     this.selectCity.reset();
   }
-
 }
 
