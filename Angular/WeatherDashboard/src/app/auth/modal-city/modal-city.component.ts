@@ -16,7 +16,9 @@ export class ModalCityComponent {
   firstCityParams = {
     temp : 0,
     city : '',
-    country : ''
+    country : '',
+    coordLon: 0,
+    coordLat: 0
   }
 
   typedCity: string = "";
@@ -29,7 +31,7 @@ export class ModalCityComponent {
 
   selectCity: FormGroup = this.fb.group({
     city: ['', Validators.required],
-    name: ['Victor',[ Validators.required, Validators.minLength(3)] ]
+    name: ['',[ Validators.required, Validators.minLength(3)] ]
   })
 
   error: boolean = false;
@@ -45,6 +47,8 @@ export class ModalCityComponent {
           // Set Values in ppal City
           this.firstCityParams.temp = resp.main.temp;
           this.firstCityParams.country = resp.sys.country;
+          this.firstCityParams.coordLon = resp.coord.lon;
+          this.firstCityParams.coordLat = resp.coord.lat;
           this.shareDataService.emitCity( this.firstCityParams );
           this.router.navigateByUrl("/dashboard/initial");
 

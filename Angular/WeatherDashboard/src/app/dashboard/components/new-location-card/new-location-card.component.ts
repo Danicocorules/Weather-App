@@ -40,10 +40,8 @@ export class NewLocationCardComponent implements OnInit, OnDestroy{
       this.showLocation();
 
       // Save data in localStorage
-        // first we cheked how many elements are saved in LS
-        let lsLength = localStorage.length + 1;
-
-
+      // first we cheked how many elements are saved in LS
+      let lsLength = localStorage.length + 1;
 
       let location = JSON.stringify( this.newLocation );
       localStorage.setItem( `location ${lsLength}` , location );
@@ -51,23 +49,19 @@ export class NewLocationCardComponent implements OnInit, OnDestroy{
   }
 
   getLsCities() {
-    console.log('aqui pilla las ciudades de LS');
-    console.log( localStorage.length );
 
     for (let i = 1; i <= localStorage.length; i++) {
       this.savedLocations.push( JSON.parse(localStorage.getItem( `location ${i}` )! ) );
     }
   }
 
-  deleteLocation() {
-    console.log('entra');
+  deleteLocation(s: any) {
+    // ToDo - Eliminar una ubicacion
   }
 
   showLocation() {
-    console.log(this.savedLocations);
+    //console.log(this.savedLocations);
   }
-
-
 
   ngOnDestroy(): void {
     this.enterSubscription.unsubscribe();

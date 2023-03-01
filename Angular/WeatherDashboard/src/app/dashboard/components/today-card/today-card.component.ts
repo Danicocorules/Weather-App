@@ -17,7 +17,9 @@ export class TodayCardComponent implements OnInit, OnDestroy{
   startCity: firstCityParams = {
     temp : 0,
     city : '',
-    country : ''
+    country : '',
+    coordLon: 0,
+    coordLat: 0
   };
 
   private countrySubs!: Subscription;
@@ -25,22 +27,21 @@ export class TodayCardComponent implements OnInit, OnDestroy{
   constructor( private shareDataSev: ShareDataService ){ }
 
   ngOnInit(): void {
-    this.escuchaPrimerPais();
+    this.firstCountry();
   }
 
-  private escuchaPrimerPais() {
+  private firstCountry() {
     this.countrySubs = this.shareDataSev.setCity()
                           .subscribe( resp => this.setPpalCity( resp ) );
   }
 
   setPpalCity( city: firstCityParams ) {
     this.startCity = city;
-    this.startCity.temp = Number((this.startCity.temp - 273.15).toFixed(1));
+    this.startCity.temp = Number((this.startCity.temp).toFixed(1));
   }
 
   ngOnDestroy(): void {
     this.countrySubs.unsubscribe();
-
   }
 
 }

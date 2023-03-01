@@ -13,13 +13,14 @@ export class IntroWeatherService {
     private city!: string;
     private long: string = '&appid=';
     private apiKey: string = '88103c0497e48e49e237356eb3ac2bab';
+    private units: string = '&units=metric';
 
     constructor( private http: HttpClient ) { }
 
     getPpalCity( city: string ): Observable<any> {
 
       this.city = city;
-      return this.http.get(`${this.url}${this.city}${this.long}${this.apiKey}`);
+      return this.http.get(`${this.url}${this.city}${this.long}${this.apiKey}${this.units}`);
     }
 }
 
