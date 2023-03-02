@@ -51,6 +51,13 @@ button.p-element.btn-add-city.p-button.p-component {
   background: $main-purple;
   padding: 15px;
 }
+.clean-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 0;
+  cursor: pointer;
+}
 
 // Cards
 .dark-card {
@@ -93,6 +100,17 @@ button.p-element.btn-add-city.p-button.p-component {
 .p-card .p-card-body,
 .p-card .p-card-footer {
   padding: 0rem !important;
+}
+
+// img
+.img-prediction {
+  opacity: 0.5;
+  margin-bottom: 0.4em;
+}
+
+.water-prediction {
+  width: 1.1em;
+  opacity: .5;
 }
 
 //text

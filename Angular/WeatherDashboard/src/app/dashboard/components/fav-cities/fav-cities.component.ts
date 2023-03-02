@@ -48,14 +48,13 @@ export class FavCitiesComponent {
     const newLocationAsArray = Object.entries( this.newLocation );
     const newLocationFiltredData = newLocationAsArray.filter( ([key, value]) => value === true );
 
-    console.log(newLocationFiltredData);
-
     this.emptyWeather.getWeatherData( this.locationForm.value.location )
       .subscribe( resp => {
 
         newLocationFiltredData.forEach( elem => {
 
           switch (elem[0]) {
+
             case 'description':
               this.newLocation.description = resp.weather[0].description || null;
               break;
@@ -72,14 +71,13 @@ export class FavCitiesComponent {
               this.newLocation.visibility = resp.visibility || null;
               break;
 
-              case 'wind':
-              this.newLocation.wind = resp.wind.speed || null;
-              break;
+            case 'wind':
+            this.newLocation.wind = resp.wind.speed || null;
+            break;
 
             default:
               break;
           }
-
          })
       });
       this.setNewLocationServ.emitLocation( this.newLocation );

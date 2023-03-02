@@ -9,32 +9,35 @@
         <p class="m-0 location-title">{{ location.location }}</p>
       </div>
       <div class="col-1">
-          <button (click)="deleteLocation()" ><i class="pi pi-times"></i></button>
+          <button #deletedCity class="clean-btn" attr.data-location="{{ location.location }}" type="button"
+          (click)="deleteLocation(deletedCity)" >
+            <i class="pi pi-times"></i>
+          </button>
       </div>
 
-      <div class="col-4">
+      <div *ngIf="location.description !== null" class="col-4">
         <p class="m-0 ">Description:</p>
         <p class="m-0 location-desc">{{ location.description }}</p>
       </div>
-      <div class="col-4">
+      <div *ngIf="location.temperature !== null" class="col-4">
          <p class="m-0 ">Temperature:</p>
-         <p class="m-0 location-desc">{{ location.temperature }}</p>
+         <p class="m-0 location-desc">{{ location.temperature }} ºC</p>
       </div>
-      <div class="col-4">
-         <p class="m-0 ">Max. Temp:</p>
-          <p class="m-0 location-desc">{{ location.minMaxTemp[0] }}</p>
+      <div *ngIf="location.minMaxTemp !== null" class="col-4">
+         <p class="m-0 ">Min. Temp:</p>
+          <p class="m-0 location-desc">{{ location.minMaxTemp[0] }} ºC</p>
       </div>
-      <div class="col-4">
-           <p class="m-0 ">Min. Temp:</p>
-          <p class="m-0 location-desc">{{ location.minMaxTemp[1] }}</p>
+      <div *ngIf="location.minMaxTemp !== null" class="col-4">
+           <p class="m-0 ">Max. Temp:</p>
+          <p class="m-0 location-desc">{{ location.minMaxTemp[1] }} ºC</p>
         </div>
-      <div class="col-4">
+      <div *ngIf="location.visibility !== null" class="col-4">
            <p class="m-0 ">Visibility:</p>
           <p class="m-0 location-desc">{{ location.visibility }}</p>
       </div>
-      <div class="col-4">
+      <div *ngIf="location.wind !== null" class="col-4">
          <p class="m-0 ">Wind:</p>
-        <p class="m-0 location-desc">{{ location.wind }}</p>
+        <p class="m-0 location-desc">{{ location.wind }} m/sec</p>
       </div>
 
   </div>

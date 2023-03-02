@@ -1,0 +1,29 @@
+
+  <div class="col bg-dark mt-3">
+      <h3 class="m-1">Next days on your selected city</h3>
+    </div>
+    <div class="flex">
+
+      <div *ngFor="let item of ppalForecast" class=" flex-1 flex align-items-center p-1 mt-1">
+
+        <p-card styleClass="light-card" class="justify-content-center text-center w-full">
+          <img src="assets/imgs/{{item.weather}}.png" class="w-7 mb-3 img-prediction" alt="weather">
+          <h3 class="dark-text m-0">{{ item.dt_txt | date: 'dd/MM/yyyy' }}</h3>
+
+          <div class="mt-2 mb-2 flex flex-row justify-content-center align-items-end">
+            <img src="assets/imgs/drop.png" alt="water prediction" class="water-prediction">
+            <p class="dark-text m-0 mt-2">{{ item.pop * 100 | number:'2.1-2' }}%</p>
+          </div>
+
+          <p class="dark-text m-0 mt-2">{{ item.temp }} ºC</p>
+          <p class="dark-text m-0 mt-2">{{ item.weather }}</p>
+
+        </p-card>
+
+      </div>
+
+
+
+
+
+    </div>
