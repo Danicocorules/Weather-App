@@ -21,19 +21,23 @@ export class NewLocationCardComponent implements OnInit, OnDestroy{
   savedLocations: newLocationData[] = [];
 
   constructor(  private setNewLocationServ: SetNewLocationService,
-                private emptyWeatherServ: EmptyWeatherService  ) {}
+                private emptyWeatherServ: EmptyWeatherService  ) {
+                  this.getLsCities()
+                }
 
   ngOnInit(): void {
     this.enterLocation();
-    this.getLsCities()
+
   }
 
   enterLocation(): void {
 
     this.setNewLocationServ.recibeLocation()
     .subscribe( resp => {
+      console.log(resp);
       this.newLocation = resp;
 
+      console.log(this.newLocation);
       // Save the user data in array
       this.savedLocations.push( this.newLocation );
 
@@ -53,6 +57,35 @@ export class NewLocationCardComponent implements OnInit, OnDestroy{
     for (let i = 1; i <= localStorage.length; i++) {
       this.savedLocations.push( JSON.parse(localStorage.getItem( `location ${i}` )! ) );
     }
+
+    // lamada de los elementos que tengas guardados en el
+    this.savedLocations.forEach( elem => {
+
+      this.emptyWeatherServ.getWeatherData( elem.location )
+        .subscribe( resp => {
+
+          if ( elem.description !== null ) {
+            elem.description = resp.weather[0].description;
+          }
+
+          if ( elem.temperature !== null ) {
+            elem.temperature = resp.main.temp;
+          }
+
+          if ( elem.minMaxTemp !== null ) {
+            elem.minMaxTemp = [resp.main.temp_min, resp.main.temp_max];
+          }
+
+          if ( elem.visibility !== null ) {
+            elem.visibility = resp.visibility;
+          }
+
+          if ( elem.wind !== null ) {
+            elem.wind = resp.wind.speed;
+          }
+
+        })
+    })
   }
 
   deleteLocation(localization: any) {

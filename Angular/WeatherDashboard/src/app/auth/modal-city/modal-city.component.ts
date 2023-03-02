@@ -39,10 +39,6 @@ export class ModalCityComponent {
   nameError: boolean = false;
 
   getCity() {
-    console.log(this.selectCity.value);
-    console.log(this.selectCity.valid);
-    console.log(this.selectCity.controls['userName'].valid);
-
     if ( this.selectCity.invalid ) {
       this.nameError = true;
       return;

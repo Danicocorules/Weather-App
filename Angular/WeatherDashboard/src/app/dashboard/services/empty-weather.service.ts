@@ -23,8 +23,5 @@ export class EmptyWeatherService {
     return this.http.get<any>( `${this.url}${this.city}${this.long}${this.id}${this.units}`);
   }
 
-  // getForecastData() {}
-
-
 
 }
