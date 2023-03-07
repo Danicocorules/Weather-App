@@ -27,7 +27,6 @@ export class NewLocationCardComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.enterLocation();
-
   }
 
   enterLocation(): void {

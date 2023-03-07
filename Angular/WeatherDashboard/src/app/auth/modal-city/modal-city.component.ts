@@ -18,7 +18,11 @@ export class ModalCityComponent {
     city : '',
     country : '',
     coordLon: 0,
-    coordLat: 0
+    coordLat: 0,
+    sunrise: 0,
+    sunset: 0,
+    humidity: 0,
+    windSpeed: 0
   }
 
   typedCity: string = "";
@@ -49,12 +53,16 @@ export class ModalCityComponent {
     this.introWeatherService.getPpalCity(this.firstCityParams.city)
       .subscribe(
         (resp) => {
-
           // Set Values in ppal City
           this.firstCityParams.temp = resp.main.temp;
           this.firstCityParams.country = resp.sys.country;
           this.firstCityParams.coordLon = resp.coord.lon;
           this.firstCityParams.coordLat = resp.coord.lat;
+          this.firstCityParams.sunrise = resp.sys.sunrise;
+          this.firstCityParams.sunset = resp.sys.sunset;
+          this.firstCityParams.humidity = resp.main.humidity;
+          this.firstCityParams.windSpeed = resp.wind.speed;
+
           this.shareDataService.emitCity( this.firstCityParams );
           this.router.navigateByUrl("/dashboard/initial");
 

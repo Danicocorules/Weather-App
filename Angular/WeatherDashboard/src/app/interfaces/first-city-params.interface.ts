@@ -3,5 +3,9 @@ export interface firstCityParams {
   city : string,
   country : string,
   coordLon: number,
-  coordLat: number
+  coordLat: number,
+  sunrise: number,
+  sunset: number,
+  humidity: number,
+  windSpeed: number
 }

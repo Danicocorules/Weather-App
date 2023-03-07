@@ -1,0 +1,63 @@
+<p-card styleClass="light-card">
+
+  <div class="grid">
+    <div class="col bg-dark">
+      <h3 class="m-1">Basic info of your city</h3>
+    </div>
+  </div>
+
+  <div class="grid">
+    <p-card class="col" styleClass="dark-card-location mt-3">
+      <div class="grid">
+
+            <div class="col-6">
+              <div class="grid">
+                <div class="col-5">
+                  <img src="../../../../assets/imgs/sunrise.png" alt="Sunrise" class="w-10">
+                </div>
+                <div class="col-6">
+                    <p class="m-0">Sunrise</p>
+                  <p class="location-desc m-0">{{ this.sunrise }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="grid">
+                <div class="col-5">
+                  <img src="../../../../assets/imgs/sunset.png" alt="Sunset" class="w-10">
+                </div>
+                <div class="col-6">
+                  <p class="m-0">Sunset</p>
+                  <p class="location-desc m-0">{{ this.sunset }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="card flex justify-content-center flex-wrap card-container">
+                  <div class="">
+                    <p class="text-center">Humidity</p>
+                    <p-knob [(ngModel)]="humidity" [readonly]="true"
+                            valueColor="#FFB702" rangeColor="white" textColor="white">
+                    </p-knob>
+                  </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="card flex justify-content-center flex-wrap card-container">
+                <div class="">
+                    <p>Wind Speed (m/sec)</p>
+                    <p-knob [(ngModel)]="windSpeed" [readonly]="true"
+                            valueColor="#FFB702" rangeColor="white" textColor="white">
+                    </p-knob>
+                </div>
+              </div>
+            </div>
+
+      </div>
+    </p-card>
+  </div>
+
+</p-card>

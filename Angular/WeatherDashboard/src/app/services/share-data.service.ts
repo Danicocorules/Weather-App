@@ -13,7 +13,11 @@ export class ShareDataService {
       city : '',
       country : '',
       coordLon: 0,
-      coordLat: 0
+      coordLat: 0,
+      sunrise: 0,
+      sunset: 0,
+      humidity: 0,
+      windSpeed: 0
     });
 
     constructor() {}
