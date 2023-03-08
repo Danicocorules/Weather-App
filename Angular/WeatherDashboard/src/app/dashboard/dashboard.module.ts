@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PrimeNgModule } from './../prime-ng/prime-ng.module'
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
+
 
 import { EmptyWeatherService } from './services/empty-weather.service'
 
@@ -14,6 +16,7 @@ import { InfoHeaderComponent } from './components/info-header/info-header.compon
 import { FavCitiesComponent } from './components/fav-cities/fav-cities.component';
 import { NewLocationCardComponent } from './components/new-location-card/new-location-card.component';
 import { WeekPredictionComponent } from './components/week-prediction/week-prediction.component';
+import { SunOptionsComponent } from './components/sun-options/sun-options.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,14 @@ import { WeekPredictionComponent } from './components/week-prediction/week-predi
     InfoHeaderComponent,
     FavCitiesComponent,
     NewLocationCardComponent,
-    WeekPredictionComponent
+    WeekPredictionComponent,
+    SunOptionsComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     PrimeNgModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [
