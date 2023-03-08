@@ -63,6 +63,7 @@ export class SunOptionsComponent implements OnInit, OnDestroy{
 
   }
 
+
   ngOnDestroy(): void {
     this.countrySubs.unsubscribe();
   }
